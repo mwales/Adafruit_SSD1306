@@ -18,10 +18,13 @@ All text above, and the splash screen must be included in any redistribution
 #ifndef _Adafruit_SSD1306_H_
 #define _Adafruit_SSD1306_H_
 
+namespace Adafruit
+{
+
 #if ARDUINO >= 100
  #include "Arduino.h"
  #define WIRE_WRITE Wire.write
-#else
+#elseif ARDUINO < 100
  #include "WProgram.h"
   #define WIRE_WRITE Wire.send
 #endif
@@ -41,8 +44,9 @@ All text above, and the splash screen must be included in any redistribution
  #define HAVE_PORTREG
 #endif
 
-#include <SPI.h>
-#include <Adafruit_GFX.h>
+#include <stdint.h>
+#include "SPI.h"
+#include "Adafruit_GFX.h"
 
 #define BLACK 0
 #define WHITE 1
@@ -66,8 +70,8 @@ All text above, and the splash screen must be included in any redistribution
     SSD1306_96_16
 
     -----------------------------------------------------------------------*/
-//   #define SSD1306_128_64
-   #define SSD1306_128_32
+   #define SSD1306_128_64
+//   #define SSD1306_128_32
 //   #define SSD1306_96_16
 /*=========================================================================*/
 
@@ -179,4 +183,6 @@ class Adafruit_SSD1306 : public Adafruit_GFX {
 
 };
 
+}
 #endif /* _Adafruit_SSD1306_H_ */
+

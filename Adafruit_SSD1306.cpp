@@ -16,6 +16,7 @@ BSD license, check license.txt for more information
 All text above, and the splash screen below must be included in any redistribution
 *********************************************************************/
 
+
 #ifdef __AVR__
   #include <avr/pgmspace.h>
 #elif defined(ESP8266)
@@ -24,16 +25,20 @@ All text above, and the splash screen below must be included in any redistributi
  #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 #endif
 
-#if !defined(__ARM_ARCH) && !defined(ENERGIA) && !defined(ESP8266)
- #include <util/delay.h>
-#endif
+//#if !defined(__ARM_ARCH) && !defined(ENERGIA) && !defined(ESP8266)
+// #include <util/delay.h>
+//#endif
 
 #include <stdlib.h>
 
-#include <Wire.h>
-#include <SPI.h>
+//#include <Wire.h>
+#include "SPI.h"
 #include "Adafruit_GFX.h"
 #include "Adafruit_SSD1306.h"
+
+namespace Adafruit
+{
+
 
 // the memory buffer for the LCD
 
@@ -726,4 +731,6 @@ void Adafruit_SSD1306::drawFastVLineInternal(int16_t x, int16_t __y, int16_t __h
       case INVERSE: *pBuf ^=  mask;  break;
     }
   }
+}
+
 }
