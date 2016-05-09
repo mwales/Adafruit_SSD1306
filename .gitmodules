@@ -1,3 +1,6 @@
 [submodule "Adafruit-GFX-Library"]
 	path = Adafruit-GFX-Library
 	url = https://github.com/mwales/Adafruit-GFX-Library
+[submodule "ArduinoForLinux"]
+	path = ArduinoForLinux
+	url = https://github.com/mwales/ArduinoForLinux

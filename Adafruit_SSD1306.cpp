@@ -29,12 +29,15 @@ All text above, and the splash screen below must be included in any redistributi
 // #include <util/delay.h>
 //#endif
 
-#include <stdlib.h>
+#include <cstdlib>
 
 //#include <Wire.h>
+#include "Wire.h"
 #include "SPI.h"
-#include "Adafruit_GFX.h"
 #include "Adafruit_SSD1306.h"
+#include "ArduinoOnLinux.h"
+
+using namespace Arduino;
 
 namespace Adafruit
 {
@@ -619,7 +622,8 @@ void Adafruit_SSD1306::drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t c
 }
 
 
-void Adafruit_SSD1306::drawFastVLineInternal(int16_t x, int16_t __y, int16_t __h, uint16_t color) {
+void Adafruit_SSD1306::drawFastVLineInternal(int16_t x, int16_t __y, int16_t __h, uint16_t color)
+{
 
   // do nothing if we're off the left or right side of the screen
   if(x < 0 || x >= WIDTH) { return; }
@@ -734,3 +738,4 @@ void Adafruit_SSD1306::drawFastVLineInternal(int16_t x, int16_t __y, int16_t __h
 }
 
 }
+

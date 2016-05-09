@@ -18,8 +18,7 @@ All text above, and the splash screen must be included in any redistribution
 #ifndef _Adafruit_SSD1306_H_
 #define _Adafruit_SSD1306_H_
 
-namespace Adafruit
-{
+
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -27,6 +26,10 @@ namespace Adafruit
 #elseif ARDUINO < 100
  #include "WProgram.h"
   #define WIRE_WRITE Wire.send
+#endif
+
+#ifndef ARDUINO
+  #define WIRE_WRITE Wire.write
 #endif
 
 #if defined(__SAM3X8E__)
@@ -41,12 +44,15 @@ namespace Adafruit
 #else
   typedef volatile uint8_t PortReg;
   typedef uint8_t PortMask;
- #define HAVE_PORTREG
+ //#define HAVE_PORTREG
 #endif
 
-#include <stdint.h>
-#include "SPI.h"
+#include <cstdint>
+//#include "SPI.h"
 #include "Adafruit_GFX.h"
+
+namespace Adafruit
+{
 
 #define BLACK 0
 #define WHITE 1
