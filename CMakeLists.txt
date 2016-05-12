@@ -4,7 +4,8 @@ add_library(SSD1306 Adafruit_SSD1306.cpp)
 
 include_directories(Adafruit-GFX-Library ArduinoForLinux)
 
-add_subdirectory(Adafruit-GFX-Library ArduinoForLinux)
+add_subdirectory(Adafruit-GFX-Library)
+add_subdirectory(ArduinoForLinux)
 
 target_link_libraries(SSD1306 Adafruit_GFX arduino)
 
