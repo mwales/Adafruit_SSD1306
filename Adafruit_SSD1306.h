@@ -174,6 +174,8 @@ class Adafruit_SSD1306 : public Adafruit_GFX {
   virtual void drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color);
   virtual void drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color);
 
+  std::string dumpBuffer();
+
  private:
   int8_t _i2caddr, _vccstate, sid, sclk, dc, rst, cs;
   void fastSPIwrite(uint8_t c);
