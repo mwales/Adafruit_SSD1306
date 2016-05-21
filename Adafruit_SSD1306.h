@@ -101,6 +101,16 @@ namespace Adafruit
   #define SSD1306_LCDHEIGHT                 16
 #endif
 
+// Uncomment below to have double size of pixels and use 1/4 sized frame buffer
+#define QUARTER_SIZE_FB
+#ifdef QUARTER_SIZE_FB
+   #define FRAMEBUF_WIDTH     (SSD1306_LCDWIDTH / 2)
+   #define FRAMEBUF_HEIGHT    (SSD1306_LCDHEIGHT / 2)
+#else
+   #define FRAMEBUF_WIDTH     SSD1306_LCDWIDTH
+   #define FRAMEBUF_HEIGHT    SSD1306_LCDHEIGHT
+#endif
+
 #define SSD1306_SETCONTRAST 0x81
 #define SSD1306_DISPLAYALLON_RESUME 0xA4
 #define SSD1306_DISPLAYALLON 0xA5
@@ -189,6 +199,8 @@ class Adafruit_SSD1306 : public Adafruit_GFX {
   inline void drawFastVLineInternal(int16_t x, int16_t y, int16_t h, uint16_t color) __attribute__((always_inline));
   inline void drawFastHLineInternal(int16_t x, int16_t y, int16_t w, uint16_t color) __attribute__((always_inline));
 
+  uint8_t expandBottomNibble(uint8_t byteOfData);
+  uint8_t expandUpperNibble(uint8_t byteOfData);
 };
 
 }
