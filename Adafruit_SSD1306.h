@@ -18,7 +18,8 @@ All text above, and the splash screen must be included in any redistribution
 #ifndef _Adafruit_SSD1306_H_
 #define _Adafruit_SSD1306_H_
 
-
+#include <cstdint>
+#include "Adafruit_GFX.h"
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -47,9 +48,7 @@ All text above, and the splash screen must be included in any redistribution
  //#define HAVE_PORTREG
 #endif
 
-#include <cstdint>
-//#include "SPI.h"
-#include "Adafruit_GFX.h"
+
 
 namespace Adafruit
 {
